@@ -15,6 +15,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0
 
+// Package main implements the once CLI.
 package main
 
 import (
@@ -85,7 +86,7 @@ func obtainLock(cmdPath string, cmdArgs []string) (func(), error) {
 		return nil, err
 	}
 
-	if err := os.MkdirAll(lockDir, 0o755); err != nil {
+	if err := os.MkdirAll(lockDir, 0o750); err != nil {
 		return nil, fmt.Errorf("failed to ensure lock dir exists %s: %w", lockDir, err)
 	}
 
@@ -114,7 +115,7 @@ func obtainLock(cmdPath string, cmdArgs []string) (func(), error) {
 	}
 
 	return func() {
-		os.Remove(lockPath) //nolint:errcheck // Why: best effort
+		os.Remove(lockPath) //nolint:errcheck,gosec // Why: best effort
 		unlock()
 	}, nil
 }
