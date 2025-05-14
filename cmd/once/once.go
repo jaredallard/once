@@ -34,12 +34,22 @@ import (
 	"github.com/spf13/cobra"
 )
 
+const developmentVersion = "v0.0.0-dev"
+
+// Version contains the current version of the CLI, which gets overwritten during releases (see .goreleaser.yml).
+var Version = developmentVersion
+
 // entrypoint is the main logic of the CLI.
 func entrypoint(c *cobra.Command, args []string) error {
 	// Force show usage if --help or -h are passed as the only flags we
 	// support.
 	if args[0] == "--help" || args[0] == "-h" {
 		return c.Help()
+	}
+
+	if args[0] == "--version" || args[0] == "-v" {
+		fmt.Printf("%s version %s\n", c.DisplayName(), c.Version)
+		return nil
 	}
 
 	cmdPath := args[0]
@@ -139,7 +149,8 @@ func main() {
 			"until the lock is released. Locks are created using a hashed " +
 			"version of the command+args to prevent leaking information about " +
 			"the command being ran.",
-		Args: cobra.MinimumNArgs(1),
+		Args:    cobra.MinimumNArgs(1),
+		Version: Version,
 
 		// If we add flags we should do a v2 where we switch to -- as the
 		// syntax. Otherwise, it's better UX to not require it.
