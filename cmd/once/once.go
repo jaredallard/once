@@ -36,7 +36,8 @@ import (
 
 const developmentVersion = "v0.0.0-dev"
 
-// Version contains the current version of the CLI, which gets overwritten during releases (see .goreleaser.yml).
+// Version contains the current version of the CLI, which gets
+// overwritten during releases (see .goreleaser.yml).
 var Version = developmentVersion
 
 // entrypoint is the main logic of the CLI.
