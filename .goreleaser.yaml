@@ -12,7 +12,7 @@ builds:
       - -s
       - -w
       ## <<Stencil::Block(onceLdflags)>>
-      - -X github.com/jaredallard/once/cmd/once.Version={{ .Version }}
+      - -X main.Version={{ .Version }}
       ## <</Stencil::Block>>
     env:
       - CGO_ENABLED=0
