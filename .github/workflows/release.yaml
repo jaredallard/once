@@ -94,7 +94,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ## <<Stencil::Block(goreleaseEnvVars)>>
-
+          HOMEBREW_TAP_GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_GITHUB_TOKEN }}
           ## <</Stencil::Block>>
       - uses: actions/attest-build-provenance@v2
         with:
