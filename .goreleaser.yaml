@@ -51,17 +51,5 @@ release:
 gitea_urls:
   api: https://git.rgst.io/api/v1
   download: https://git.rgst.io
-
 ## <<Stencil::Block(extraReleaseOpts)>>
-brews:
-  - commit_author:
-      name: GitHub Actions
-      email: 41898282+github-actions[bot]@users.noreply.github.com
-    homepage: https://github.com/jaredallard/once
-    license: GPL-3.0
-    description: "Safely run commands concurrently that do not support it natively"
-    repository:
-      owner: jaredallard
-      name: homebrew-tap
-      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
 ## <</Stencil::Block>>

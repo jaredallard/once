@@ -99,7 +99,6 @@ jobs:
           version: v${{ steps.goreleaser.outputs.version }}
           args: release --release-notes CHANGELOG.md --clean
         env:
-          GITHUB_TOKEN: ${{ env.REAL_GITHUB_TOKEN }}
           ## <<Stencil::Block(goreleaseEnvVars)>>
-          HOMEBREW_TAP_GITHUB_TOKEN: ${{ secrets.HOMEBREW_TAP_GITHUB_TOKEN }}
+          GITEA_TOKEN: ${{ github.token }}
           ## <</Stencil::Block>>
