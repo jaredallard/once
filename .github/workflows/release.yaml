@@ -93,11 +93,10 @@ jobs:
         run: |-
           mise run changelog-release
       - name: Create release artifacts and Github Release
-        uses: goreleaser/goreleaser-action@v7
-        with:
-          distribution: goreleaser
-          version: v${{ steps.goreleaser.outputs.version }}
-          args: release --release-notes CHANGELOG.md --clean
+        run: |-
+          unset GITHUB_TOKEN
+
+          goreleaser release --release-notes CHANGELOG.md --clean
         env:
           ## <<Stencil::Block(goreleaseEnvVars)>>
           GITEA_TOKEN: ${{ github.token }}
