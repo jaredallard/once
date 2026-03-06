@@ -40,10 +40,6 @@ snapshot:
 changelog:
   use: git
 release:
-  github:
-    owner: jaredallard
-    name: once
-
   gitea:
     owner: jaredallard
     name: once
