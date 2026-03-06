@@ -40,9 +40,18 @@ snapshot:
 changelog:
   use: git
 release:
+  github:
+    owner: jaredallard
+    name: once
+
+  gitea:
+    owner: jaredallard
+    name: once
+
   prerelease: "auto"
   footer: |-
     **Full Changelog**: https://git.rgst.io/jaredallard/once/compare/{{ .PreviousTag }}...{{ .Tag }}
+
 gitea_urls:
   api: https://git.rgst.io/api/v1
   download: https://git.rgst.io
