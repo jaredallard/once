@@ -51,5 +51,7 @@ release:
 gitea_urls:
   api: https://git.rgst.io/api/v1
   download: https://git.rgst.io
+
 ## <<Stencil::Block(extraReleaseOpts)>>
+
 ## <</Stencil::Block>>
